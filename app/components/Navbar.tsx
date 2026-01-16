@@ -1,116 +1,78 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' },
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Education', path: '/education' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Experience', path: '/experience' },
+    { name: 'Future Ideas', path: '/future-ideas' },
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-gray-900/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
-      }`}
-    >
+    <nav className="fixed top-0 w-full bg-[var(--dark-green)] shadow-lg z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl font-bold text-white"
-          >
+        <div className="flex justify-between items-center h-16">
+          <Link href="/" className="text-2xl font-bold text-[var(--accent-yellow)] hover:text-[var(--hover-yellow)] transition-colors">
             Shreyaj Padigala
-          </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
-                className="text-gray-300 hover:text-white transition-colors duration-200 font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                href={link.path}
+                className={`text-lg font-medium transition-colors px-3 py-2 rounded-md ${
+                  pathname === link.path
+                    ? 'text-[var(--accent-yellow)] bg-[var(--military-green)]'
+                    : 'text-gray-200 hover:text-[var(--accent-yellow)] hover:bg-[var(--military-green)]'
+                }`}
               >
-                {item.name}
-              </motion.a>
+                {link.name}
+              </Link>
             ))}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-300 hover:text-white focus:outline-none"
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isMobileMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-gray-200 hover:text-[var(--accent-yellow)] transition-colors"
+          >
+            {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-gray-900/95 backdrop-blur-md"
-        >
+      {isMenuOpen && (
+        <div className="md:hidden bg-[var(--military-green)]">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                href={link.path}
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  pathname === link.path
+                    ? 'text-[var(--accent-yellow)] bg-[var(--dark-green)]'
+                    : 'text-gray-200 hover:text-[var(--accent-yellow)] hover:bg-[var(--dark-green)]'
+                }`}
               >
-                {item.name}
-              </a>
+                {link.name}
+              </Link>
             ))}
           </div>
-        </motion.div>
+        </div>
       )}
-    </motion.nav>
+    </nav>
   );
 }
