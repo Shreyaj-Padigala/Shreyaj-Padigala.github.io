@@ -19,17 +19,6 @@ const educationData = {
 
 const experience = [
   {
-    role: 'Backend Software Engineer',
-    company: 'Google Developers Group',
-    location: 'Richardson, TX',
-    period: 'Present',
-    description: [
-      'Built a UTD-exclusive prediction market platform supporting 500+ virtual token allocations per user by designing PostgreSQL schema and implementing Node/Express APIs with JWT authentication',
-      'Implemented real-time market updates and live chat with sub-second latency by integrating Socket.io for live pricing and user interactions',
-      'Developed core prediction market logic with automated market resolution, implementing LMSR pricing and market settlement workflows'
-    ]
-  },
-  {
     role: 'Software Engineering Extern',
     company: 'Outamation',
     location: 'McKinney, TX',
@@ -50,7 +39,18 @@ const experience = [
       'Built an automated data pipeline that cleaned and validated 5+ years of Ethereum metrics using Pandas and NumPy, reducing manual data processing time by 60%',
       'Led a 5-member research team to deliver a functional predictive model by coordinating weekly development sprints and collaborating with a finance professor'
     ]
-  }
+  },
+  {
+  role: 'Full Stack Development Intern',
+  company: 'KAS Software Solutions LLC',
+  location: 'Pompano Beach, FL',
+  period: 'May 2025 – August 2025',
+  description: [
+    'Engineered full-stack web applications for two clients using Java, Spring Boot, HTML, CSS, and JavaScript, translating startup requirements into production-ready software serving 100+ monthly users',
+    'Improved backend performance and user interactivity by optimizing SQL queries and implementing database indexing, reducing application response times by 38%',
+    'Built responsive front-end interfaces and managed secure database systems to ensure reliable user interactions and safe data submissions'
+  ]
+}
 ];
 
 const projects = [
