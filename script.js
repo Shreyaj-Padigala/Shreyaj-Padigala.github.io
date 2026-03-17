@@ -30,14 +30,14 @@ const experience = [
     ]
   },
   {
-    role: 'Undergraduate Research Lead, Deep Learning Systems',
-    company: 'ACM Research',
+    role: 'Undergraduate Quantitative Research For Decentralized Banks and Retail ETH Investors',
+    company: 'Association of Computing Machinery',
     location: 'Richardson, TX',
-    period: 'Sept 2025 - Present',
+    period: 'September 2025 - Present',
     description: [
-      'Increased Ethereum price forecast accuracy from 52% to 58% by designing a recurrent neural network using Python and TensorFlow to process multi-year financial datasets',
-      'Built an automated data pipeline that cleaned and validated 5+ years of Ethereum metrics using Pandas and NumPy, reducing manual data processing time by 60%',
-      'Led a 5-member research team to deliver a functional predictive model by coordinating weekly development sprints and collaborating with a finance professor'
+      'Selected as 1 of 8 project leads from a cohort of 50 researchers, leading a team of 5 undergraduate researchers to develop deep learning models for Ethereum price forecasting and coordinating the end-to-end project workflow.',
+      'Improved Ethereum price forecasting accuracy by 20% by engineering advanced financial features, including Parkinson volatility, from daily OHLC market data (2017–2026) sourced from Yahoo Finance.',
+      'Trained deep learning time-series models (RNN, LSTM, GRU) using TensorFlow (Keras API) and processed 9 years of historical Ethereum market data with Pandas and NumPy, evaluating model performance with MSE and MAPE.'
     ]
   },
   {
@@ -83,6 +83,12 @@ const projects = [
     desc: 'LSTM-based model for predicting Solana cryptocurrency price movements using historical market data.',
     tags: ['Python', 'TensorFlow', 'LSTM', 'Finance'],
     link: 'https://github.com/Shreyaj-Padigala/Solana-SOL--Price-Prediction-Model'
+  },
+  {
+    name: 'Algomize',
+    desc: 'AI-powered high-frequency trading tool using Amazon Nova 2 Lite to orchestrate intelligent agents that analyze market signals and execute optimized trading strategies in real time.',
+    tags: ['Node.js', 'JavaScript', 'Amazon Nova 2 Lite', 'AI Agents', 'Finance'],
+    link: 'https://github.com/Shreyaj-Padigala/Algomize'
   }
 ];
 
@@ -103,6 +109,15 @@ const hackathons = [
     links: {
       devpost: 'https://devpost.com/software/aero-bujt4z',
       github: 'https://github.com/krishjayanth/aero-tamu-hack'
+    }
+  },
+  {
+    name: 'Amazon Nova AI Hackathon 2026',
+    award: 'Amazon Nova Track',
+    desc: 'Competed under the Amazon Nova Track. Built "Algomize", an AI-powered high-frequency trading tool leveraging Amazon Nova 2 Lite to orchestrate intelligent agents that analyze market signals and execute optimized trading strategies in real time.',
+    links: {
+      devpost: 'https://devpost.com/software/algomize',
+      github: 'https://github.com/Shreyaj-Padigala/Algomize'
     }
   }
 ];
