@@ -87,7 +87,7 @@ const projects = [
   {
     name: 'Algomize',
     desc: 'AI-powered high-frequency trading tool using Amazon Nova 2 Lite to orchestrate intelligent agents that analyze market signals and execute optimized trading strategies in real time.',
-    tags: ['Python', 'Amazon Nova 2 Lite', 'AI Agents', 'FastAPI', 'Finance'],
+    tags: ['Node.js', 'JavaScript', 'Amazon Nova 2 Lite', 'AI Agents', 'Finance'],
     link: 'https://github.com/Shreyaj-Padigala/Algomize'
   }
 ];
