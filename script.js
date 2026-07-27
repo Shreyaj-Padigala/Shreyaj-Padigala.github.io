@@ -1,75 +1,85 @@
 // ===== Data & Content =====
 
+// Dates below are month-accurate; adjust the exact days if you want them precise.
 const blogPosts = [
-  { date: '2025-08-31', content: 'Initial commit of my portfolio v2.0. Learning lots of React!' },
-  { date: '2025-09-08', content: 'Just got into NeuroSpeech Research Project.' },
-  { date: '2025-11-20', content: 'Just presented NeuroSpeech Project at UTD Crow Arts Museum.' },
-  { date: '2025-12-08', content: 'Beginning my software engineering externship with Outamation' },
-  { date: '2025-12-15', content: 'Wrapping up the semester at UTD. Finals week was intense but rewarding.' },
-  { date: '2026-01-30', content: 'Just began Backend Development Project for Google Developers Group!' }
+  { date: '2025-09-08', content: 'Just got into the NeuroSpeech Research Project.' },
+  { date: '2025-11-20', content: 'Just presented the NeuroSpeech Project at the UTD Crow Arts Museum.' },
+  { date: '2025-12-08', content: 'Beginning my AI engineering externship with Outamation.' },
+  { date: '2026-01-30', content: 'Just began the Backend Development Project for Google Developers Group!' },
+  { date: '2026-02-27', content: 'Wrapped up the Outamation externship with the Completer Award, top 15 out of 100+ in the winter cohort.' },
+  { date: '2026-04-17', content: 'Presented RNN, LSTM, GRU, and HM-RNN models at the UTD ML Research Symposium.' },
+  { date: '2026-04-24', content: 'Shipped Algomize, an AI trading agent built on AWS Bedrock and ElevenLabs voice agents.' },
+  { date: '2026-06-01', content: 'Started as an AI Intern at McAfee, 1 of 14 interns selected from 1,200+ applicants.' }
 ];
 
 const educationData = {
-  school: 'University of Texas at Dallas',
-  major: 'B.S. Data Science',
+  school: 'The University of Texas at Dallas',
+  major: 'B.S. Computer Science',
   gradDate: 'May 2028',
-  honors: ['Hobson Wildenthal Honors College', 'Academic Excellence Scholarship'],
+  location: 'Richardson, TX',
+  degree: [
+    'The University of Texas at Dallas — Richardson, TX',
+    'Bachelor of Science in Computer Science',
+    'Expected graduation: May 2028'
+  ],
+  honors: ['Academic Excellence Scholarship (AES) Recipient', 'CV Scholar', 'Hobson Wildenthal Honors College'],
+  coursework: ['Object-Oriented Programming', 'Computer Architecture', 'Data Structures and Algorithms'],
   organizations: ['Association for Computing Machinery (ACM) Research', 'Google Developers Group', 'Society of Automotive Engineers at Dallas Formula Racing']
 };
 
 const experience = [
-  // TODO(Shreyaj): swap the McAfee bullets below for your real accomplishments/metrics.
   {
     role: 'AI Intern',
     company: 'McAfee',
     location: 'Frisco, TX',
-    period: 'May 2026 - Present',
+    period: 'Jun 2026 - Present',
     description: [
-      'Building and evaluating AI/ML tooling that supports McAfee consumer security products.',
-      'Working with large-scale security and telemetry data to prototype models and automate manual analysis workflows.',
-      'Partnering with engineering teams to take prototypes from notebook experiments toward production-ready services.'
+      'Selected as 1 of 14 interns from 1,200+ applicants to engineer an internal tooling application for Databricks Genie AI agent development, enterprise analytics, and software automation workflows',
+      'Designed a Flask-based Genie Agent Reviewer application with domain-restricted JWT authentication, enabling 100+ McAfee employees and C-suite leaders to query production Databricks Genie agents through a centralized web interface',
+      'Integrated Databricks Genie REST APIs for CRUD-style operations, using Swagger and Postman for HTTP response testing, Git for version-controlled backend changes, and Jira for sprint-based planning, issue tracking, and development traceability',
+      'Improved analytics data quality by 30%+ by developing autonomous test-query workflows with Databricks REST APIs, Unity Catalog schemas, and MLflow evaluations to flag 1,000+ inaccurate or partially correct SQL responses'
     ]
   },
   {
-    role: 'Software Engineering Extern',
-    company: 'Outamation',
-    location: 'McKinney, TX',
-    period: 'Dec 2025 - Present',
-    description: [
-      'Built AI-powered pipelines to extract, classify, and search data from 200+ page mortgage documents using Tesseract, PaddleOCR, and PyMuPDF, improving processing efficiency by 22%',
-      'Developed a RAG-based document retrieval system using LlamaIndex for multi-document mortgage data, improving retrieval precision through chunk tuning and metadata filtering',
-      'Evaluated document intelligence pipeline on 200+ page mortgage files, benchmarking OCR, RAG retrieval, and routing performance'
-    ]
-  },
-  {
-    role: 'Undergraduate Quantitative Research For Decentralized Banks and Retail ETH Investors',
-    company: 'Association of Computing Machinery',
+    role: 'Research Lead',
+    company: 'Association for Computing Machinery',
     location: 'Richardson, TX',
-    period: 'September 2025 - Present',
+    period: 'Sep 2025 - Apr 2026',
     description: [
-      'Selected as 1 of 8 project leads from a cohort of 50 researchers, leading a team of 5 undergraduate researchers to develop deep learning models for Ethereum price forecasting and coordinating the end-to-end project workflow.',
-      'Improved Ethereum price forecasting accuracy by 20% by engineering advanced financial features, including Parkinson volatility, from daily OHLC market data (2017–2026) sourced from Yahoo Finance.',
-      'Trained deep learning time-series models (RNN, LSTM, GRU) using TensorFlow (Keras API) and processed 9 years of historical Ethereum market data with Pandas and NumPy, evaluating model performance with MSE and MAPE.'
+      'Selected as 1 of 10 leads from 60 researchers, leading a team of 5 researchers to develop Python-based deep learning models using the Keras API with TensorFlow',
+      'Increased Ethereum paper-trading returns by 20% by designing a novel Hierarchical Multiscale RNN model to detect short-term volatility zones and long-term market regimes on OHLC ETH-USD hourly price data from Yahoo Finance (2021-2026)',
+      'Presented RNN, LSTM, GRU, and HM-RNN deep learning models at the UTD ML Research Symposium, evaluating performance with MSE and MAPE metrics'
     ]
   },
   {
-  role: 'Full Stack Development Intern',
-  company: 'KAS Software Solutions LLC',
-  location: 'Pompano Beach, FL',
-  period: 'May 2025 – August 2025',
-  description: [
-    'Engineered full-stack web applications for two clients using Java, Spring Boot, HTML, CSS, and JavaScript, translating startup requirements into production-ready software serving 100+ monthly users',
-    'Improved backend performance and user interactivity by optimizing SQL queries and implementing database indexing, reducing application response times by 38%',
-    'Built responsive front-end interfaces and managed secure database systems to ensure reliable user interactions and safe data submissions'
-  ]
-}
+    role: 'AI Engineering Extern',
+    company: 'Outamation',
+    location: 'Remote',
+    period: 'Dec 2025 - Feb 2026',
+    description: [
+      'Created RAG pipelines to extract and classify data from 200+ page mortgage documents using Tesseract, PaddleOCR, and PyMuPDF Python libraries, improving document and image processing efficiency by 22%',
+      'Explored performance differences between Gemini and open-source LLMs (Phi-2 and Mistral-7B) through chunk tuning and metadata filtering using LlamaIndex',
+      'Deployed final end-to-end project with a testing UI using Azure App Service, earning the Outamation Completer Award (top 15 out of 100+ in the winter cohort)'
+    ]
+  },
+  {
+    role: 'Full Stack Development Intern',
+    company: 'KAS Software Solutions LLC',
+    location: 'Pompano Beach, FL',
+    period: 'May 2025 - Aug 2025',
+    description: [
+      'Engineered full-stack web applications for two clients using Java, Spring Boot, HTML, CSS, and JavaScript, translating startup requirements into production-ready software serving 100+ monthly users',
+      'Improved backend performance and user interactivity by optimizing SQL queries and implementing database indexing, reducing application response times by 38%',
+      'Built responsive front-end interfaces and managed secure database systems to ensure reliable user interactions and safe data submissions'
+    ]
+  }
 ];
 
 const projects = [
   {
     name: 'EnarcExchange',
-    desc: 'UTD-exclusive prediction market platform with real-time betting on campus events, featuring secure authentication and live market pricing.',
-    tags: ['PostgreSQL', 'Node.js', 'Gemini Flash 2.5', 'Express', 'Socket.io', 'JWT Auth', 'Swagger'],
+    desc: 'AI-powered prediction market platform with a virtual token economy, reaching 10-12 active users. Implemented LMSR pricing and real-time betting updates with WebSockets, reducing market update latency by 20%, on a scalable Node.js, Express, PostgreSQL backend with JWT auth and the Gemini 2.5 Flash API.',
+    tags: ['Node.js', 'Express', 'PostgreSQL', 'WebSockets', 'JWT', 'AWS', 'Gemini 2.5 Flash'],
     link: 'https://github.com/Owen-Isenhart/EnarcExchange'
   },
   {
@@ -80,8 +90,8 @@ const projects = [
   },
   {
     name: 'NeuroSpeech',
-    desc: 'Neural signal decoding system improving phoneme recognition accuracy to assist individuals with ALS using RNN architectures.',
-    tags: ['Python', 'TensorFlow', 'PyTorch', 'Machine Learning'],
+    desc: 'EEG-based brain-computer interface work that improved phoneme recognition accuracy from 62% to 68% using RNN speech decoding models. Built with a 5-member team and a neuroscience professor, integrating 10,850+ neural trials from individuals with ALS for training and phoneme-level prediction.',
+    tags: ['Python', 'TensorFlow', 'PyTorch', 'RNN'],
     link: 'https://github.com/Aditya-Yan/NeuroSpeech'
   },
   {
@@ -98,8 +108,8 @@ const projects = [
   },
   {
     name: 'Algomize',
-    desc: 'AI-powered high-frequency trading tool using Amazon Nova 2 Lite to orchestrate intelligent agents that analyze market signals and execute optimized trading strategies in real time.',
-    tags: ['Node.js', 'JavaScript', 'Amazon Nova 2 Lite', 'AI Agents', 'Finance'],
+    desc: 'AI trading agent using AWS Bedrock to orchestrate user-defined entry and exit conditions with ElevenLabs voice agents. Real-time scoring and agent learning in Node.js evaluate leverage trades and improve strategy execution, deployed full-stack on Render and Vercel.',
+    tags: ['Amazon Nova 2 Lite', 'AWS Bedrock', 'ElevenLabs API', 'Node.js', 'Render', 'Vercel'],
     link: 'https://github.com/Shreyaj-Padigala/Algomize'
   }
 ];
@@ -108,27 +118,22 @@ const skills = [
   {
     name: 'Languages',
     file: 'languages.txt',
-    items: ['Python', 'Java', 'JavaScript', 'SQL', 'HTML', 'CSS']
+    items: ['Python', 'C++', 'Java', 'JavaScript', 'TypeScript', 'HTML', 'CSS']
   },
   {
-    name: 'AI & ML',
-    file: 'ai_ml.txt',
-    items: ['TensorFlow (Keras)', 'PyTorch', 'RNN / LSTM / GRU', 'NLP', 'RAG (LlamaIndex)', 'LLM Integration', 'OCR (Tesseract, PaddleOCR)', 'Model Evaluation']
-  },
-  {
-    name: 'Backend',
-    file: 'backend.txt',
-    items: ['Node.js', 'Express', 'Spring Boot', 'FastAPI', 'Flask', 'REST APIs', 'Socket.io', 'JWT Auth', 'Swagger']
+    name: 'Frameworks & Tools',
+    file: 'frameworks_tools.txt',
+    items: ['Node.js', 'React', 'Git', 'Azure', 'AWS', 'Postman', 'Swagger', 'JIRA', 'CI/CD']
   },
   {
     name: 'Data',
     file: 'data.txt',
-    items: ['PostgreSQL', 'SQLite', 'Pandas', 'NumPy', 'Query Optimization', 'Database Indexing', 'Feature Engineering']
+    items: ['Databricks', 'PySpark', 'Pandas', 'PostgreSQL', 'MongoDB']
   },
   {
-    name: 'Tools',
-    file: 'tools.txt',
-    items: ['Git', 'GitHub', 'Linux / Unix', 'Jupyter', 'Postman', 'VS Code', 'Microsoft Azure']
+    name: 'AI / ML',
+    file: 'ai_ml.txt',
+    items: ['Scikit-learn', 'TensorFlow', 'RNN', 'CNN', 'RAG']
   },
   {
     name: 'Certifications',
@@ -385,8 +390,14 @@ function handleEducationFolderClick(folderId) {
   });
 
   // Show content
-  const data = folderId === 'honors' ? educationData.honors : educationData.organizations;
-  const title = folderId === 'honors' ? 'honors.txt' : 'organizations.txt';
+  const files = {
+    degree: 'degree.txt',
+    honors: 'honors.txt',
+    coursework: 'coursework.txt',
+    organizations: 'organizations.txt'
+  };
+  const data = educationData[folderId] || [];
+  const title = files[folderId] || `${folderId}.txt`;
 
   contentArea.innerHTML = createTerminalWindow(title, `
     <div class="space-y-4">
