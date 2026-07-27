@@ -18,6 +18,18 @@ const educationData = {
 };
 
 const experience = [
+  // TODO(Shreyaj): swap the McAfee bullets below for your real accomplishments/metrics.
+  {
+    role: 'AI Intern',
+    company: 'McAfee',
+    location: 'Frisco, TX',
+    period: 'May 2026 - Present',
+    description: [
+      'Building and evaluating AI/ML tooling that supports McAfee consumer security products.',
+      'Working with large-scale security and telemetry data to prototype models and automate manual analysis workflows.',
+      'Partnering with engineering teams to take prototypes from notebook experiments toward production-ready services.'
+    ]
+  },
   {
     role: 'Software Engineering Extern',
     company: 'Outamation',
@@ -92,6 +104,39 @@ const projects = [
   }
 ];
 
+const skills = [
+  {
+    name: 'Languages',
+    file: 'languages.txt',
+    items: ['Python', 'Java', 'JavaScript', 'SQL', 'HTML', 'CSS']
+  },
+  {
+    name: 'AI & ML',
+    file: 'ai_ml.txt',
+    items: ['TensorFlow (Keras)', 'PyTorch', 'RNN / LSTM / GRU', 'NLP', 'RAG (LlamaIndex)', 'LLM Integration', 'OCR (Tesseract, PaddleOCR)', 'Model Evaluation']
+  },
+  {
+    name: 'Backend',
+    file: 'backend.txt',
+    items: ['Node.js', 'Express', 'Spring Boot', 'FastAPI', 'Flask', 'REST APIs', 'Socket.io', 'JWT Auth', 'Swagger']
+  },
+  {
+    name: 'Data',
+    file: 'data.txt',
+    items: ['PostgreSQL', 'SQLite', 'Pandas', 'NumPy', 'Query Optimization', 'Database Indexing', 'Feature Engineering']
+  },
+  {
+    name: 'Tools',
+    file: 'tools.txt',
+    items: ['Git', 'GitHub', 'Linux / Unix', 'Jupyter', 'Postman', 'VS Code', 'Microsoft Azure']
+  },
+  {
+    name: 'Certifications',
+    file: 'certifications.txt',
+    items: ['Microsoft Azure Fundamentals (AZ-900)']
+  }
+];
+
 const hackathons = [
   {
     name: 'HackUTD 2025',
@@ -119,6 +164,15 @@ const hackathons = [
       devpost: 'https://devpost.com/software/algomize',
       github: 'https://github.com/Shreyaj-Padigala/Algomize'
     }
+  },
+  {
+    name: "Hook'em Hacks 2026",
+    award: 'IBM Security Track',
+    desc: 'Competed under the IBM Security Track. Built "PromptWall", a prompt injection defense layer for LLM applications: keeping your LLM apps on the web without prompt injection detection is like giving strangers your house keys. PromptWall scans incoming prompts, blocks attacks, and improves over time.',
+    links: {
+      devpost: 'https://devpost.com/software/b2b-saas-aero',
+      github: 'https://github.com/Shreyaj-Padigala/PromptWall'
+    }
   }
 ];
 
@@ -126,6 +180,7 @@ const hackathons = [
 let activeTab = 'main';
 let selectedFolders = {
   education: null,
+  skills: null,
   experience: null,
   projects: null,
   hackathons: null
@@ -224,6 +279,9 @@ function initSection(section) {
       break;
     case 'education':
       initEducationSection();
+      break;
+    case 'skills':
+      initSkillsSection();
       break;
     case 'experience':
       initExperienceSection();
@@ -343,6 +401,72 @@ function handleEducationFolderClick(folderId) {
     selectedFolders.education = null;
     contentArea.classList.add('hidden');
     document.querySelectorAll('#education-folders .desktop-folder').forEach(f => f.classList.remove('selected'));
+  });
+
+  contentArea.classList.remove('hidden');
+}
+
+// ===== Skills Section =====
+
+function initSkillsSection() {
+  const spotlight = document.getElementById('skills-spotlight');
+  typeText(spotlight, 'Technical Skills');
+
+  const foldersContainer = document.getElementById('skills-folders');
+  foldersContainer.innerHTML = skills.map((group, idx) => `
+    <button data-folder="${idx}" class="desktop-folder flex flex-col items-center gap-2 group w-28 focus:outline-none">
+      <div class="relative transition-all duration-200 group-hover:scale-105">
+        ${createFolderIcon()}
+      </div>
+      <span class="folder-label text-xs font-medium text-gray-700 dark:text-gray-200 px-2 py-1 rounded-md max-w-full truncate group-hover:bg-black/10 dark:group-hover:bg-white/10">${group.name}</span>
+    </button>
+  `).join('');
+
+  const contentArea = document.getElementById('skills-content');
+  contentArea.classList.add('hidden');
+  contentArea.innerHTML = '';
+
+  foldersContainer.querySelectorAll('.desktop-folder').forEach(folder => {
+    folder.onclick = () => handleSkillsFolderClick(parseInt(folder.dataset.folder));
+  });
+}
+
+function handleSkillsFolderClick(idx) {
+  const contentArea = document.getElementById('skills-content');
+  const foldersContainer = document.getElementById('skills-folders');
+
+  if (selectedFolders.skills === idx) {
+    selectedFolders.skills = null;
+    contentArea.classList.add('hidden');
+    foldersContainer.querySelectorAll('.desktop-folder').forEach(f => f.classList.remove('selected'));
+    return;
+  }
+
+  selectedFolders.skills = idx;
+
+  foldersContainer.querySelectorAll('.desktop-folder').forEach(f => {
+    if (parseInt(f.dataset.folder) === idx) {
+      f.classList.add('selected');
+    } else {
+      f.classList.remove('selected');
+    }
+  });
+
+  const group = skills[idx];
+  contentArea.innerHTML = createTerminalWindow(group.file, `
+    <div class="flex gap-2 text-green-400 text-xs mb-4">
+      <span>➜</span>
+      <span class="text-blue-400">~</span>
+      <span class="text-gray-400">cat ${group.file}</span>
+    </div>
+
+    <div class="skill-list">
+      ${group.items.map(item => `<span>${item}</span>`).join('')}
+    </div>
+  `, () => {
+    selectedFolders.skills = null;
+    contentArea.classList.add('hidden');
+    foldersContainer.querySelectorAll('.desktop-folder').forEach(f => f.classList.remove('selected'));
   });
 
   contentArea.classList.remove('hidden');
